@@ -34,6 +34,8 @@ app.get("/api", (req: express.Request, res: express.Response) => {
 });
 
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`port ${port} でサーバー起動中`);
 });
+
+export default server;

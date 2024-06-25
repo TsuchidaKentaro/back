@@ -7,7 +7,6 @@
     "type": "git",
     "url": "git+ssh://git@github.com/TsuchidaKentaro/back.git"
   },
-  "author": "TsuchidaKentaro <kentaro.tsuchida@g.dreamcareer.co.jp>",
   "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.21",

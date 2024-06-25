@@ -1,14 +1,4 @@
 #!/bin/sh
-
 . "$(dirname "$0")/_/husky.sh"
 
-# 現在のブランチ名を取得
-current_branch=$(git symbolic-ref --short HEAD)
-
-# devブランチおよびfeature/で始まるブランチのみでフックを実行
-if [ "$current_branch" = "dev" ] || [[ "$current_branch" == feature/* ]]; then
-  echo "Running tests on branch: $current_branch"
-  yarn test --bail --passWithNoTests --watchAll=false
-else
-  echo "Skipping tests on branch: $current_branch"
-fi
+yarn test --bail --passWithNoTests --watchAll=false --forceExit

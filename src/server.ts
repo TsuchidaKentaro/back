@@ -1,41 +1,16 @@
-/* server.ts */
-import express from "express";
+// server.ts
 
-const app: express.Express = express();
-const port = 8000;
+import express, { Request, Response } from 'express';
 
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.send("Hello, world!");
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!');
 });
 
-app.get("/api", (req: express.Request, res: express.Response) => {
-  res.json([
-    {
-      id:1,
-      name:"りんご",
-      price:200,
-    },
-    {
-      id:2,
-      name:"バナナ",
-      price:300,
-    },
-    {
-      id:3,
-      name:"みかん",
-      price:"150",
-    },
-    {
-      id:4,
-      name:"メロン",
-      price:"2000",
-    },
-  ]);
+const server = app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-
-app.listen(port, () => {
-  console.log(`port ${port} でサーバー起動中`);
-});
-
-export default app;
+export default server;

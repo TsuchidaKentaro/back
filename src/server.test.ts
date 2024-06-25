@@ -1,21 +1,17 @@
-import request from 'supertest';
-import app from './server'; // 修正されたserver.tsからExpressアプリケーションをインポート
+// server.test.ts
+
+import request from 'supertest'; // Supertest を使用して HTTP リクエストを送信する
+import server from './server'; // テスト対象のサーバーファイル
 
 describe('GET /', () => {
-  it('should return Hello, world!', async () => {
-    const response = await request(app).get('/');
+  it('responds with "Hello World!"', async () => {
+    const response = await request(server).get('/');
     expect(response.status).toBe(200);
-    expect(response.text).toBe('Hello, world!');
+    expect(response.text).toEqual('Hello World!');
   });
 });
 
-describe('GET /api', () => {
-  it('should return a list of fruits', async () => {
-    const response = await request(app).get('/api');
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveLength(4); // 4つのフルーツが返されることを確認
-    expect(response.body[0]).toHaveProperty('id', 1);
-    expect(response.body[0]).toHaveProperty('name', 'りんご');
-    expect(response.body[0]).toHaveProperty('price', 200);
-  });
+// サーバーのクローズ処理を追加する場合（オプション）
+afterAll(done => {
+  server.close(done);
 });

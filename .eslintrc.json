@@ -1,0 +1,27 @@
+{
+    "extends": ["airbnb", "eslint:recommended", "plugin:prettier/recommended"],
+    "plugins": ["react", "prettier"],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "globals": {
+        "jest": true,
+        "test": true,
+        "expect": true,
+        "beforeEach": true,
+        "afterEach": true,
+        "global": true
+    },
+    "overrides": [
+        {
+            "files": ["**/*.{ts,js,mjs,cjs,jsx}"],
+            "rules": {
+                // 追加のルールやカスタマイズがあればここに追加します
+            }
+        }
+    ]
+}
